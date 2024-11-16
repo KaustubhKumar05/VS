@@ -12,7 +12,9 @@ const defaultHandle = {
 };
 
 export const TextNode = ({ id, data }) => {
-  const [contents, setContents] = useState("Enter {{variables}} here");
+  const [contents, setContents] = useState(
+    "Enter {{variables}} with valid names here"
+  );
   const [handles, setHandles] = useState([]);
   const textareaRef = useRef(null);
 
@@ -81,12 +83,12 @@ export const TextNode = ({ id, data }) => {
 
   return (
     <GenericNode {...NodeRegistry.textNode} id={id} handles={handles}>
-      <div className="relative font-mono">
+      <div className="relative">
         <textarea
           ref={textareaRef}
           value={contents}
           onChange={(e) => setContents(e.target.value)}
-          className={`w-full min-h-[${MIN_HEIGHT}px] px-3 py-2 h-auto text-transparent caret-black bg-white border border-${NodeRegistry.textNode.theme}-300 rounded-md shadow-sm resize-none`}
+          className={`w-full px-3 py-2 h-auto text-transparent caret-black bg-white border border-${NodeRegistry.textNode.theme}-300 rounded-md shadow-sm resize-none`}
           placeholder="Enter {{variables}} here"
         />
         <div className="absolute inset-0 pointer-events-none whitespace-pre-wrap break-words overflow-hidden px-3 py-2">
