@@ -12,7 +12,9 @@ function App() {
         className="border-t border-blue-500"
         style={{ height: "calc(30vh - 95px)" }}
       >
-        <p className="text-center font-semibold my-4">Drag and drop nodes to create a workflow</p>
+        <p className="text-center font-semibold my-4">
+          Drag and drop nodes to create a workflow
+        </p>
         <div className="flex w-full justify-center flex-1 items-center gap-4">
           <ClearButton />
           <SubmitButton />
@@ -23,8 +25,3 @@ function App() {
 }
 
 export default App;
-
-/**
- * Todo:
- * - BE Fix
- */
