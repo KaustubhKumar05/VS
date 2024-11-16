@@ -28,7 +28,7 @@ export const GenericNode = ({
   children,
   theme = "",
 }) => {
-  const { removeNode } = useStore();
+  const { removeNode, removeEdgesWithNode } = useStore();
   return (
     <div
       className={`min-w-52 min-h-20 flex flex-col rounded-md bg-${theme}-200/75 overflow-hidden`}
@@ -39,9 +39,12 @@ export const GenericNode = ({
         {icon}
         <p className={`text-lg font-bold text-white`}>{title}</p>
         <XIcon
-          size="16"
-          className="ml-auto cursor-pointer"
-          onClick={() => removeNode(id)}
+          size={18}
+          className="ml-auto text-white cursor-pointer hover:opacity-50"
+          onClick={() => {
+            removeNode(id);
+            removeEdgesWithNode(id);
+          }}
         />
       </div>
       <div
@@ -57,7 +60,13 @@ export const GenericNode = ({
             key={`${handle.id}-${handle.label}`}
             className={`p-1 relative`}
           >
-            <p className={`absolute -top-2 text-sm font-semibold ${getHandleLabelClasses(handle.position)}`}>{handle.label}</p>
+            <p
+              className={`absolute -top-2 text-sm font-semibold ${getHandleLabelClasses(
+                handle.position
+              )}`}
+            >
+              {handle.label}
+            </p>
           </Handle>
         ))}
         {inputs.map((input) => (
