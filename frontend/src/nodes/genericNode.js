@@ -58,7 +58,7 @@ export const GenericNode = ({
             style={handle.style}
             id={`${id}-${handle.id}`}
             key={`${handle.id}-${handle.label}`}
-            className={`p-1 relative`}
+            className="p-1 relative"
           >
             <p
               className={`absolute -top-2 text-sm font-semibold ${getHandleLabelClasses(

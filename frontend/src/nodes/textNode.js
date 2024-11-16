@@ -88,7 +88,7 @@ export const TextNode = ({ id, data }) => {
           ref={textareaRef}
           value={contents}
           onChange={(e) => setContents(e.target.value)}
-          className={`w-full px-3 py-2 h-auto text-transparent caret-black bg-white border border-${NodeRegistry.textNode.theme}-300 rounded-md shadow-sm resize-none`}
+          className={`w-full px-3 py-2 h-auto text-transparent caret-black bg-white border border-${NodeRegistry.textNode.theme}-500 rounded-md shadow-sm resize-none`}
           placeholder="Enter {{variables}} here"
         />
         <div className="absolute inset-0 pointer-events-none whitespace-pre-wrap break-words overflow-hidden px-3 py-2">

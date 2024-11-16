@@ -23,7 +23,7 @@ export const SubmitButton = () => {
           >
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold text-gray-900 text-white">
+                <h2 className="text-2xl font-bold text-black">
                   Evaluation
                 </h2>
                 <button

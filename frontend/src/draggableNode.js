@@ -15,7 +15,7 @@ export const DraggableNode = ({ type, label }) => {
     <div
       className={`${type} border-2 bg-white border-${
         NodeRegistry[NodeMap[label]].theme
-      }-400 px-4 py-2`}
+      }-500 px-4 py-2`}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
       style={{

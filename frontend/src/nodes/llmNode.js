@@ -24,7 +24,13 @@ export const LLMNode = ({ id, data }) => {
           style: { top: `${200 / 3}%` },
           label: "Input2",
         },
-        { type: "source", id: "response", position: Position.Right, style: {}, label: "Output" },
+        {
+          type: "source",
+          id: "response",
+          position: Position.Right,
+          style: {},
+          label: "Output",
+        },
       ]}
     >
       <p className="font-semibold">This is an LLM</p>
