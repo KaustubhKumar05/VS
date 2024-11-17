@@ -12,15 +12,27 @@ import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 
 import 'reactflow/dist/style.css';
+import { DBNode } from './nodes/dbNode';
+import { CacheNode } from './nodes/cacheNode';
+import { IntegrationNode } from './nodes/integrationNode';
+import { VisionNode } from './nodes/visionNode';
+import { ValidatorNode } from './nodes/validatorNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
-const nodeTypes = {
-  customInput: InputNode,
-  llm: LLMNode,
-  customOutput: OutputNode,
-  text: TextNode,
+
+export const nodeTypes = {
+  inputNode: InputNode,
+  llmNode: LLMNode,
+  outputNode: OutputNode,
+  textNode: TextNode,
+  dbNode: DBNode,
+  cacheNode: CacheNode,
+  integrationNode: IntegrationNode,
+  visionNode: VisionNode,
+  validatorNode: ValidatorNode,
 };
+
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -90,7 +102,7 @@ export const PipelineUI = () => {
 
     return (
         <>
-        <div ref={reactFlowWrapper} style={{width: '100wv', height: '70vh'}}>
+        <div ref={reactFlowWrapper} className='bg-white' style={{width: '100wv', height: '70vh'}}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}

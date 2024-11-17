@@ -1,13 +1,13 @@
-import { PipelineToolbar } from './toolbar';
-import { PipelineUI } from './ui';
-import { SubmitButton } from './submit';
+import { PipelineToolbar } from "./toolbar";
+import { PipelineUI } from "./ui";
+import { PipelineActions } from "./actions";
 
 function App() {
   return (
-    <div>
+    <div className="bg-blue-50 h-screen">
       <PipelineToolbar />
       <PipelineUI />
-      <SubmitButton />
+      <PipelineActions />
     </div>
   );
 }

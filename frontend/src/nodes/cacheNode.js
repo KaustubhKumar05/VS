@@ -1,39 +1,37 @@
-// llmNode.js
-
 import { Position } from "reactflow";
 import { GenericNode } from "./genericNode";
 import { NodeRegistry } from ".";
 
-export const LLMNode = ({ id, data }) => {
+export const CacheNode = ({ id, data }) => {
   return (
     <GenericNode
       id={id}
-      {...NodeRegistry.llmNode}
+      {...NodeRegistry.cacheNode}
       handles={[
         {
           type: "target",
           id: "system",
           position: Position.Left,
           style: { top: `${100 / 3}%` },
-          label: "Input1",
+          label: "Input",
         },
         {
-          type: "target",
-          id: "prompt",
+          type: "source",
+          id: "system",
           position: Position.Left,
           style: { top: `${200 / 3}%` },
-          label: "Input2",
+          label: "Response",
         },
         {
           type: "source",
           id: "response",
           position: Position.Right,
           style: {},
-          label: "Output",
+          label: "Forward",
         },
       ]}
     >
-      <p className="font-semibold">This is an LLM</p>
+      <p className="font-semibold">Redis cache</p>
     </GenericNode>
   );
 };

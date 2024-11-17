@@ -1,17 +1,19 @@
-// toolbar.js
-
-import { DraggableNode } from './draggableNode';
+import { DraggableNode } from "./draggableNode";
+import { NodeRegistry } from "./nodes";
+import { nodeTypes } from "./ui";
 
 export const PipelineToolbar = () => {
-
-    return (
-        <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                <DraggableNode type='customInput' label='Input' />
-                <DraggableNode type='llm' label='LLM' />
-                <DraggableNode type='customOutput' label='Output' />
-                <DraggableNode type='text' label='Text' />
-            </div>
-        </div>
-    );
+  return (
+    <div className="px-2 border-b border-blue-400">
+      <div className="py-2 flex w-full items-center justify-center gap-3 overflow-x-auto">
+        {Object.keys(nodeTypes).map((nodeType) => (
+          <DraggableNode
+            key={nodeType}
+            type={nodeType}
+            label={NodeRegistry[nodeType].title}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
