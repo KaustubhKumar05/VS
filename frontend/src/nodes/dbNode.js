@@ -1,28 +1,18 @@
-// llmNode.js
-
 import { Position } from "reactflow";
 import { GenericNode } from "./genericNode";
 import { NodeRegistry } from ".";
 
-export const LLMNode = ({ id, data }) => {
+export const DBNode = ({ id, data }) => {
   return (
     <GenericNode
       id={id}
-      {...NodeRegistry.llmNode}
+      {...NodeRegistry.dbNode}
       handles={[
         {
           type: "target",
           id: "system",
           position: Position.Left,
-          style: { top: `${100 / 3}%` },
-          label: "Input1",
-        },
-        {
-          type: "target",
-          id: "prompt",
-          position: Position.Left,
-          style: { top: `${200 / 3}%` },
-          label: "Input2",
+          label: "Input",
         },
         {
           type: "source",
@@ -32,8 +22,13 @@ export const LLMNode = ({ id, data }) => {
           label: "Output",
         },
       ]}
-    >
-      <p className="font-semibold">This is an LLM</p>
-    </GenericNode>
+      inputs={[
+        {
+          options: ["MongoDB", "MySQL", "PostgreSQL"],
+          default: data.outputType || "MongoDB",
+          label: "Type",
+        },
+      ]}
+    />
   );
 };
